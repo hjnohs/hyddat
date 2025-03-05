@@ -6,29 +6,29 @@
 <meta http-equiv="content-language" content="fi" />
 <meta name="description" value="Stadin hyddat ennen ja nyt" />
 <meta name="keywords" value="Helsinki, Stadi, hyppyri, mäki, mäkihyppy. hynda, hydda, hyndä, hyddä, talvi, urheilu, mäkihyppäjä, kaupunki" />
- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+ <link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
   <link rel="stylesheet" href="tyyli.css" />
 <!--[if lte IE 8]>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+<link rel="stylesheet" href="https://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
  <![endif]-->
 
 </head>
 <body>
 <div id="container">
-<header> <a href="http://www.kotikaupunkipolut.fi"><img src="sinilogo.jpg" class="logo_v" title="Kotikaupunkipolut"></a> <a href="https://skr.fi/uu"><img src="uu-vihrea.gif" class="logo_o" title="Uudenmaan kulttuurirahasto"></a> <h1>Stadin hyddat ennen ja nyt</h1>
+<header> <a href="https://www.kotikaupunkipolut.fi"><img src="sinilogo.jpg" class="logo_v" title="Kotikaupunkipolut"></a> <a href="https://skr.fi/uu"><img src="uu-vihrea.gif" class="logo_o" title="Uudenmaan kulttuurirahasto"></a> <h1>Stadin hyddat ennen ja nyt</h1>
 <font size "1">Pauli Saloranta, Kari J. Nyberg, Harri Nygrén 2013-2020</font>
 </header>
   <div id="map"></div>
-   <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+   <script src="https://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
  <script>
   // OSM
- var osm = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+ var osm = L.tileLayer('https://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
     maxZoom: 18
 });
 // MML Satelliittikuva
- var mml = L.tileLayer('http://tiles.kartat.kapsi.fi/ortokuva/{z}/{x}/{y}.jpg', {
-    attribution: 'Map data &copy; <a href="http://www.maanmittauslaitos.fi/">Maanmittauslaitos</a>',
+ var mml = L.tileLayer('https://tiles.kartat.kapsi.fi/ortokuva/{z}/{x}/{y}.jpg', {
+    attribution: 'Map data &copy; <a href="https://www.maanmittauslaitos.fi/">Maanmittauslaitos</a>',
     maxZoom: 18,
 	minZoom: 13
 });
@@ -59,7 +59,7 @@ L.control.layers(karttaPohjat).addTo(map);
 
 
 // Alppila
-L.marker([60.189761, 24.938085]).addTo(map).bindPopup('Alppilan hydda K28, 1905&#150;39.  Mäkiennätys 29,5 m. Alppilassa hypättiin mäkeä jo 1902&#150;04 ns. Pikku-Alppilan luonnonmäessä, mäkiennätys 12,5 m. Alppila oli Helsingin mäkihypyn keskus aina Herttoniemen mäen valmistumiseen 1936 saakka.<br><a href="http://www.flickr.com/photos/slsarkiva/7928925150/in/set-72157631400680470/">Hoppbacken i Alphyddan</a>, Foto Gustaf Sandberg. <br>Urheilulehti 1905: <a href="../alppila/Helsingin_uusi_hiihtomaki_UL_1905.pdf">Helsingin uusi hiihtomäki</a><br>YLE Elävä-arkisto: <a href="http://yle.fi/elavaarkisto/artikkelit/talvista_kisailua_1900-luvun_alussa_239.html#media=254">Mäkihyppykilpailut Alppilassa 1906</a>');
+L.marker([60.189761, 24.938085]).addTo(map).bindPopup('Alppilan hydda K28, 1905&#150;39.  Mäkiennätys 29,5 m. Alppilassa hypättiin mäkeä jo 1902&#150;04 ns. Pikku-Alppilan luonnonmäessä, mäkiennätys 12,5 m. Alppila oli Helsingin mäkihypyn keskus aina Herttoniemen mäen valmistumiseen 1936 saakka.<br><a href="https://www.flickr.com/photos/slsarkiva/7928925150/in/set-72157631400680470/">Hoppbacken i Alphyddan</a>, Foto Gustaf Sandberg. <br>Urheilulehti 1905: <a href="../alppila/Helsingin_uusi_hiihtomaki_UL_1905.pdf">Helsingin uusi hiihtomäki</a><br>YLE Elävä-arkisto: <a href="https://yle.fi/elavaarkisto/artikkelit/talvista_kisailua_1900-luvun_alussa_239.html#media=254">Mäkihyppykilpailut Alppilassa 1906</a>');
 
 // Aarnika
 L.marker([60.239305, 25.007050]).addTo(map).bindPopup('Aarnikan hydda nykyisessä Pihlajamäessä, K25. Rakennettu 1951. Paikalla todennäköisesti ollut suojeluskunnan ylläpitämä hyppyrimäki jo 1930-luvun lopulta. <a href="../aarnika/aarnika_ylamaki.jpg">Ylämäen rakenteita</a>, <a href="../aarnika/aarnika_hyppyri.jpg">hyppyri</a> on kaiverruksen mukaan vuodelta -53, <a href="../aarnika/aarnika_alamaki.jpg">alamäki</a>, <a href="../aarnika/aarnika_alamaki_reunakiveys.jpg">alamäen reunakiveystä</a>, <a href="../aarnika/aarnika_portaat.jpg">kiviportaiden jäännöksiä</a>. ');
@@ -75,7 +75,7 @@ L.marker([60.18605, 24.94388]).addTo(map).bindPopup('Hesarin hydda K18 1934&#150
 L.marker([60.21109, 25.03387]).addTo(map).bindPopup('Herttoniemen uudet hyddat, kolme hyppyrimäkeä (K46, K22 ja K17). K46 mäki purettiin 2019. K22 ja K17 mäet ovat ainoat jäljellä olevat hyppyrimäet Helsingissä. <a href="../hertsika_uusi/hertsika_uusi.jpg">Hertsikan uusi hydda</a>');
 
 // Herttoniemi, vanha
-L.marker([60.20379, 25.0275]).addTo(map).bindPopup('Hertsikan vanha hydda Majavatien päässä, K50 1936&#150;76.  Mäkiennätys 52 m 7.3.1976 Joonas Myllyveräjä.<a href="../hertsika/hertsika_ylamaki.jpg">Ylämäen betonijalustoja</a>, <a href="../hertsika/hertsika_tuomaritorni.jpg">tuomaritornin jalustat</a>, <a href="../hertsika/hertsika_alamaki.jpg">alastulorinne</a> ja <a href="../hertsika/hertsika_portaat.jpg">portaat</a>. <a href="http://yle.fi/elavaarkisto/artikkelit/herttoniemen_hyppyrimaki_51419.html#media=51420">Mäkikisat Hertsikassa 1953</a>  ');
+L.marker([60.20379, 25.0275]).addTo(map).bindPopup('Hertsikan vanha hydda Majavatien päässä, K50 1936&#150;76.  Mäkiennätys 52 m 7.3.1976 Joonas Myllyveräjä.<a href="../hertsika/hertsika_ylamaki.jpg">Ylämäen betonijalustoja</a>, <a href="../hertsika/hertsika_tuomaritorni.jpg">tuomaritornin jalustat</a>, <a href="../hertsika/hertsika_alamaki.jpg">alastulorinne</a> ja <a href="../hertsika/hertsika_portaat.jpg">portaat</a>. <a href="https://yle.fi/elavaarkisto/artikkelit/herttoniemen_hyppyrimaki_51419.html#media=51420">Mäkikisat Hertsikassa 1953</a>  ');
 
 // Hyryla
 L.marker([60.40209, 25.02183]).addTo(map).bindPopup('Hyrylän hyppyrimäki. Suojeluskunnan rakentama hyppyrimäki vuodelta 1938. Avajaiskisat pidettiin 16.3.1938. Myrsky kaatoi tornin 1950-luvun alussa. Mäkiennätys 33m. Alamäen paikka löytyy.<br> <a href="../hyryla/hyrylan_hynda_40_l.jpg">Hyrylän mäki 1940-luvulla</a><br><a href="../hyryla/hyrylan_alastulorinne_v2020.jpg">Hyrylän mäen alastulorinne v. 2020</a>');
@@ -123,7 +123,7 @@ L.marker([60.2285, 24.98471]).addTo(map).bindPopup('"Ogelin Norski", "Normansbac
 L.marker([60.470022, 24.795331]).addTo(map).bindPopup('"Parkkimäki, suojeluskunnan v. 1937 rakennuttama hyppyrimäki. Purettu 1970-luvulla? Mäkiennätys 39 m.<p><a href="../parkkimaki/parkkimaki_1950-luvulla.jpg">Parkkimäki 1950-luvulla</a>, kuva: Jorma Koskenlaakso, Nurmijärven museon kuva-arkisto<p><a href="../parkkimaki/parkkimaki_alastulorinne_2_2020.jpg">Lähes umpeen kasvanut alastulorinne v. 2020</a><p><a href="../parkkimaki/parkkimaki_alastulorinne_2020.jpg">Alastulorinne alamäen halkaisevalta tieltä kuvattuna v. 2020</a><p><a href="../parkkimaki/parkkimaki_betonipilarit_2020.jpg">Ylämäen betonipilareita v. 2020</a><p><a href="../parkkimaki/parkkimaki_betonipilari_2020.jpg">Ylämäen betonipilarit on kuin veistoksia</a> ');
 
 // Pukinmäki
-L.marker([60.24593, 24.97913]).addTo(map).bindPopup('"Puksun Norski" Sinivuorella, Weisteen tehtaan vieressä, K13. Ennen sotia rakennettiin talkoilla ylämäki, myöhemmin luonnonmäkenä. Käytössä ainakin 1960-luvun alkupuolella. Ei mitään rakenteita nähtävissä. <a href="../sinivuori/sinivuori_alamaki.jpg">Alamäki</a> erottuu vain jos tietää mäen paikan.<br> <a href="http://pukinmaki.fi/?option=com_content&view=article&id=376" target="_blank">Sinivuori Pukinmäen kotisivuilla</a>');
+L.marker([60.24593, 24.97913]).addTo(map).bindPopup('"Puksun Norski" Sinivuorella, Weisteen tehtaan vieressä, K13. Ennen sotia rakennettiin talkoilla ylämäki, myöhemmin luonnonmäkenä. Käytössä ainakin 1960-luvun alkupuolella. Ei mitään rakenteita nähtävissä. <a href="../sinivuori/sinivuori_alamaki.jpg">Alamäki</a> erottuu vain jos tietää mäen paikan.<br> <a href="https://pukinmaki.fi/?option=com_content&view=article&id=376" target="_blank">Sinivuori Pukinmäen kotisivuilla</a>');
 
 // Riskutie
 L.marker([60.22269, 25.10736]).addTo(map).bindPopup('Serwoodin hydda, Puotinkylän Valtin mäki Riskutien alussa, rakennettu 1954. Valtti järjesti mäessä 1950-luvulla kahdet piirikunnalliset kilpailut. <a href="../riskutie/riskutie_alamaki.jpg">Tasoitettu alastulorinne</a> havaittavissa, ei muita rakenteita jäljellä.');
@@ -197,8 +197,8 @@ Hertsikassa on nyt Stadin viimeiset hyddat. <a href="https://sites.google.com/vi
 K15, K22 ja K46 veteraanivoimin. 
 </p>
 
-<p>Paikansimme Stadin hyddia vuonna 2013 <a href="http://www.skr.fi/fi/rahastot/uudenmaan-rahasto/" target="_blank">Uudenmaan Kulttuurirahaston</a> tuella ja 
-<a href="http://www.urheilumuseo.fi/" target="_blank">Suomen Urheilumuseon</a> avulla.<br> 
+<p>Paikansimme Stadin hyddia vuonna 2013 <a href="https://www.skr.fi/fi/rahastot/uudenmaan-rahasto/" target="_blank">Uudenmaan Kulttuurirahaston</a> tuella ja 
+<a href="https://www.urheilumuseo.fi/" target="_blank">Suomen Urheilumuseon</a> avulla.<br> 
 Kiitos tiedoista myös Helsingin kaupunginmuseolle, Espoon kaupungin nimistötoimelle,
  entisille mäkimiehille ja lukuisille yksityisille kaupunginosa-aktiiveille.
 </p>
@@ -220,8 +220,8 @@ Helsingin mäkiviikko osa 4: <a href="https://areena.yle.fi/1-50725202" target="
 Helsingin Sanomat 17.2.2018: <a href="https://www.hs.fi/kaupunki/art-2000005570641.html" target="_blank">Haagan vanhan hyppyrimäen rinteessä lasketaan pulkalla, muuten Helsingin uljaasta mäkihyppy­historiasta on jäljellä lähinnä raunioita</a>.<br>
 Helsingin Sanomat 4.2.2018: <a href="https://www.hs.fi/urheilu/art-2000005552178.html" target="_blank">Suomalainen mäkihyppy syntyikin Helsingissä</a>.<br>
 Helsingin Sanomat 4.12.2014: <a href="https://www.hs.fi/ihmiset/art-2000002782739.html" target="_blank">Kolmikko paikansi Helsingin entiset hyppyrimäet</a>.<br>
-Markku "Bobi" Poutanen 2011: <a href="http://www.nouseva.com/index.php?mod=31&recordID=120" target="_blank">Helsingin hyppyrimäkihistoria</a> Haagan Nousevan sivuilla.<br>
-Marko J. Leppänen 2015: <a href="http://esoteerinenmaantiede.blogspot.fi/2015/02/saihkyvat-saikeet-helsingin-vanhan.html" target="_blank">Säihkyvät säikeet: Helsingin vanhan latukartan kirvoittamaa.</a>
+Markku "Bobi" Poutanen 2011: <a href="https://www.nouseva.com/index.php?mod=31&recordID=120" target="_blank">Helsingin hyppyrimäkihistoria</a> Haagan Nousevan sivuilla.<br>
+Marko J. Leppänen 2015: <a href="https://esoteerinenmaantiede.blogspot.fi/2015/02/saihkyvat-saikeet-helsingin-vanhan.html" target="_blank">Säihkyvät säikeet: Helsingin vanhan latukartan kirvoittamaa.</a>
 </p>
  </div>
  </div>
