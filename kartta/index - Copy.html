@@ -1,0 +1,209 @@
+﻿<!doctype html>
+<head>
+	<meta charset="utf-8">
+  <title>Stadin hyddat ennen ja nyt</title>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta http-equiv="content-language" content="fi" />
+<meta name="description" value="Stadin hyddat ennen ja nyt" />
+<meta name="keywords" value="Helsinki, Stadi, hyppyri, mäki, mäkihyppy. hynda, hydda, hyndä, hyddä, talvi, urheilu, mäkihyppäjä, kaupunki" />
+ <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+  <link rel="stylesheet" href="tyyli.css" />
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+ <![endif]-->
+
+</head>
+<body>
+<div id="container">
+<header> <a href="http://www.kotikaupunkipolut.fi"><img src="sinilogo.jpg" class="logo_v" title="Kotikaupunkipolut"></a> <a href="https://skr.fi/uu"><img src="uu-vihrea.gif" class="logo_o" title="Uudenmaan kulttuurirahasto"></a> <h1>Stadin hyddat ennen ja nyt</h1>
+<font size "1">Pauli Saloranta, Kari J. Nyberg, Harri Nygrén 2013&#150;14</font>
+</header>
+  <div id="map"></div>
+   <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+ <script>
+  // OSM
+ var osm = L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+    maxZoom: 18
+});
+// MML Satelliittikuva
+ var mml = L.tileLayer('http://tiles.kartat.kapsi.fi/ortokuva/{z}/{x}/{y}.jpg', {
+    attribution: 'Map data &copy; <a href="http://www.maanmittauslaitos.fi/">Maanmittauslaitos</a>',
+    maxZoom: 18,
+	minZoom: 13
+});
+ //var map = L.map('map').setView([60.210145, 24.994240], 12);
+ var map = L.map('map', {
+    center: new L.LatLng(60.204, 24.97879),
+    zoom: 12,
+    layers: [osm]
+});
+var karttaPohjat = {
+    "Ilmakuva": mml,
+    "OpenstreetMap": osm
+};
+
+L.control.layers(karttaPohjat).addTo(map);
+
+// Sijainti
+		var popup = L.popup();
+
+		function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("Tyylikäs alastulo paikkaan " + e.latlng.toString())
+				.openOn(map);
+		}
+
+		map.on('click', onMapClick);
+
+
+// Alppila
+L.marker([60.189761, 24.938085]).addTo(map).bindPopup('Alppilan hydda K28, 1905&#150;39.  Mäkiennätys 29,5 m. Alppilassa hypättiin mäkeä jo 1902&#150;04 ns. Pikku-Alppilan luonnonmäessä, mäkiennätys 12,5 m. Alppila oli Helsingin mäkihypyn keskus aina Herttoniemen mäen valmistumiseen 1936 saakka.<br><a href="http://www.flickr.com/photos/slsarkiva/7928925150/in/set-72157631400680470/">Hoppbacken i Alphyddan</a>, Foto Gustaf Sandberg. <br>Urheilulehti 1905: <a href="../alppila/Helsingin_uusi_hiihtomaki_UL_1905.pdf">Helsingin uusi hiihtomäki</a><br>YLE Elävä-arkisto: <a href="http://yle.fi/elavaarkisto/artikkelit/talvista_kisailua_1900-luvun_alussa_239.html#media=254">Mäkihyppykilpailut Alppilassa 1906</a>');
+
+// Aarnika
+L.marker([60.239305, 25.007050]).addTo(map).bindPopup('Aarnikan hydda nykyisessä Pihlajamäessä, K25. Rakennettu 1951. Paikalla todennäköisesti ollut suojeluskunnan ylläpitämä hyppyrimäki jo 1930-luvun lopulta. <a href="../aarnika/aarnika_ylamaki.jpg">Ylämäen rakenteita</a>, <a href="../aarnika/aarnika_hyppyri.jpg">hyppyri</a> on kaiverruksen mukaan vuodelta -53, <a href="../aarnika/aarnika_alamaki.jpg">alamäki</a>, <a href="../aarnika/aarnika_alamaki_reunakiveys.jpg">alamäen reunakiveystä</a>, <a href="../aarnika/aarnika_portaat.jpg">kiviportaiden jäännöksiä</a>. ');
+
+// Haaga
+L.marker([60.225227, 24.885857]).addTo(map).bindPopup('Haagan hydda K18. Rakennettu 1949&#150;50. Mäkiennätys 22 m. <a href="../haaga/haaga_ylamaki.jpg">Ylämäki</a> oli rakennettu erikoisen kallion varaan. <a href="../haaga/haaga_alamaki.jpg">Alastulorinteen</a> profiilia on aikojen kuluessa loivennettu.');
+
+
+// Helsinginkatu
+L.marker([60.18605, 24.94388]).addTo(map).bindPopup('Hesarin hydda K18 1934&#150;59.<br> <a href="http://www2.hs.fi/extrat/audioslide/kaupunki/vanhaa_lunta/14.jpg">Mäkihyppyä Hesarilla</a> (kuva Oswald Hedenström)<br>Hesarin hyddaa muistelee myös Mattssonin Eki mainiossa <a href="../hesari/eki_hesarillakin_oli_hydda.pdf">pakinassaan</a>. ');
+
+// Herttoniemi, uusi
+L.marker([60.21109, 25.03387]).addTo(map).bindPopup('Herttoniemen uudet hyddat, kolme hyppyrimäkeä (K46, K22 ja K17), ainoat jäljellä olevat hyppyrimäet Helsingissä. <a href="../hertsika_uusi/hertsika_uusi.jpg">Hertsikan uusi hydda</a>');
+
+// Herttoniemi, vanha
+L.marker([60.20379, 25.0275]).addTo(map).bindPopup('Hertsikan vanha hydda Majavatien päässä, K50 1936&#150;76.  Mäkiennätys 52 m 7.3.1976 Joonas Myllyveräjä.<a href="../hertsika/hertsika_ylamaki.jpg">Ylämäen betonijalustoja</a>, <a href="../hertsika/hertsika_tuomaritorni.jpg">tuomaritornin jalustat</a>, <a href="../hertsika/hertsika_alamaki.jpg">alastulorinne</a> ja <a href="../hertsika/hertsika_portaat.jpg">portaat</a>. <a href="http://yle.fi/elavaarkisto/artikkelit/herttoniemen_hyppyrimaki_51419.html#media=51420">Mäkikisat Hertsikassa 1953</a>  ');
+
+// Kaivopuisto
+L.marker([60.15506, 24.95543]).addTo(map).bindPopup('Kaivopuiston hydda, "pienoismäki" käytössä ainakin vuodesta 1937 1960-luvun lopulle. Hyppyri oli kivivallin päällä, hyppysuunta itään');
+
+// Kallio
+L.marker([60.18763, 24.95079]).addTo(map).bindPopup('Kallion hydda, "pienoismäki" 1933, siirrettiin Helsinginkadulle. Tarkkaa sijaintia ei tiedetä. Näillä kulmin tiedetään olleen aikaisemminkin mäki, "Kinkan brantti" n. 1905, sen tarkkaa sijaintia ei tiedetä.<br>');
+
+// Katajanokka
+L.marker([60.16882, 24.96669]).addTo(map).bindPopup('Sportklubben i Helsingfors järjesti Suomen ensimmäisen mäkihyppykilpailun 9.3 1886 Helsingin Kajanokan pohjoisrinteellä luonnonmäessä. Tarkkaa sijaintia ei tiedetä. Täältä alkaa Suomen ja myös Stadin mäkihypyn historia.<br>Uljas 1886: <a href="../katajanokka/Ensimmainen_makikisa_Uljas _ 03041886.pdf">Talvurheutta</a>');
+
+// Kontiomäki
+L.marker([60.220538, 25.084534]).addTo(map).bindPopup('Kontiomäen hydda "Sikkis" Vartiokylässä, Kontionmajan ja Kehä I:sen välissä, rakennettu 1956. <a href="../kontiomaki/kontiomaki_ylamaki.jpg">Ylämäen betonirakenteet</a>, <a href="../kontiomaki/kontiomaki_hyppyri.jpg">hyppyri</a>, <a href="../kontiomaki/kontiomaki_alamaki.jpg">alastulorinne</a> ja <a href="../kontiomaki/kontiomaki_portaat.jpg">osia kiviportaista</a>.');
+
+// Korkeasaari
+L.marker([60.17579, 24.98122]).addTo(map).bindPopup('Vuodesta 1893 alkaen Helsingfors Skidklubb järjesti useita mäenlaskukilpailuja Korkeasaaressa. Tarkkaa paikkaa ei tiedetä. Vuodelta 1902 on maininta "jääkarhun häkin" luona, hyppyri oli tuolloin korkeudeltaan 1,5 m.');
+
+// Kumpula
+L.marker([60.2053, 24.96002]).addTo(map).bindPopup('Kumpulan hydda. <a href="../kumpula/kumpula_alamaki.jpg">Alamäen rinne</a> erottuu vielä maastosta.');
+
+// Käpylä
+L.marker([60.214972, 24.941132]).addTo(map).bindPopup('<a href="../tallinmaki/kapylan_hydda.jpg">Tallinmäen hydda</a> Käpylässä, K18. Rakennettu 1934. Mäkiennätys 24,5 m. <a href="../tallinmaki/tallinmaki_ylamaki.jpg">Ylämäen säilyneitä rakenteita</a>, <a href="../tallinmaki/tallinmaki_alamaki.jpg">alamäki.');
+
+// Lauttasaari
+L.marker([60.163235, 24.863917]).addTo(map).bindPopup('<a href="../lauttasaari/lauttasaari.jpg">Pyrkän hydda</a> K28 Lauttasaaressa 1960&#150;73. Mäkiennätys 29,5 m, Niilo Halonen. Ensimmäinen mäki K17 Lauttasaareen rakennettiin jo 1935.');
+
+// Maunula
+L.marker([60.223698, 24.923349]).addTo(map).bindPopup('<a href="../pekkari/pekkari.jpg">Pekkarin hydda</a> K25, nykyisessä Maunulanpuistossa. Rakennettu 1956. Hyppytorni purettiin 1980-luvulla. Mäkiennätys 26 m, Juhani Ormo, Kari Nyberg. <a href="../pekkari/pekkari_alamaki.jpg">Pekkarin alastulorinne.</a> on turmeltu huoltotunnelin suuaukolla. <a href="../pekkari/pekkari_hyppyri.jpg">Hyppyri</a> oli erityisen matala. <a href="../pekkari/pekkari_ylamaki.jpg">Ylämäen rakenteita</a>. ');
+
+// Meilahti vanha
+L.marker([60.19404, 24.895]).addTo(map).bindPopup('Meilahden vanha hydda K18 1933-55, Kuusitien mutkassa, <a href="../meilahti_vanha/meilahti_vanha_hyppysuunta.jpg">hyppysuunta Munkkaan</a> päin. Ei rakenteita näkyvissä');
+
+// Meilahti uusi
+L.marker([60.1893, 24.8921]).addTo(map).bindPopup('Meilahden uusi hydda, K24. Rakennettu 1959. <a href="../meilahti/meilahti_ylamaki.jpg">Ylämäen rakenteita</a>, <a href="../meilahti/meilahti_alamaki.jpg">alamäki</a>.');
+
+// Munkkivuori 12m
+L.marker([60.21049, 24.87609]).addTo(map).bindPopup('Huopalahden hydda Talin kalliolla K12, nykyisessä Munkkivuoressa. Rakennettu 1940-luvun loppupuolella. <a href="../munkkivuori/munkkivuori_alamaki.jpg">Munkkivuoren hyppyrimäen alastulorinne</a>');
+
+// Oulunkylä
+L.marker([60.2285, 24.98471]).addTo(map).bindPopup('"Ogelin Norski", "Normansbacken", Pirunkalliolla Pikkukoskella, 1905 valmistunut luonnonmäki. 1910 mäkeä kunnostettiin ja rakennettiin 5 m. korkea lähtölava, K20. Ì·ggelby Idrottsklub järjesti uusitun mäen <a href="../ogeli/invignig_af_skidbacken_5_2_1910.jpg">avajaiskilpailut 6.2.1910</a>. Käytössä  vielä ainakin 1950- ja 1960-luvulla luonnonmäkenä. <a href="../ogeli/ogelin_norski_25_10_2013.jpg">Alastulorinne</a> erottuu vielä helposti Pirunkallion itärinteeltä');
+
+// Pukinmäki
+L.marker([60.24593, 24.97913]).addTo(map).bindPopup('"Puksun Norski" Sinivuorella, Weisteen tehtaan vieressä, K13. Ennen sotia rakennettiin talkoilla ylämäki, myöhemmin luonnonmäkenä. Käytössä ainakin 1960-luvun alkupuolella. Ei mitään rakenteita nähtävissä. <a href="../sinivuori/sinivuori_alamaki.jpg">Alamäki</a> erottuu vain jos tietää mäen paikan.<br> <a href="http://pukinmaki.fi/?option=com_content&view=article&id=376" target="_blank">Sinivuori Pukinmäen kotisivuilla</a>');
+
+// Riskutie
+L.marker([60.22269, 25.10736]).addTo(map).bindPopup('Serwoodin hydda, Puotinkylän Valtin mäki Riskutien alussa, rakennettu 1954. Valtti järjesti mäessä 1950-luvulla kahdet piirikunnalliset kilpailut. <a href="../riskutie/riskutie_alamaki.jpg">Tasoitettu alastulorinne</a> havaittavissa, ei muita rakenteita jäljellä.');
+
+
+// Roihuvuori
+L.marker([60.201147, 25.051274]).addTo(map).bindPopup('Roihuvuoren hydda, K25. 1960-1975. <a href="../roihuvuori/roihuvuori_ylamaki.jpg">Ylämäen betonirakenteita</a>, <a href="../roihuvuori/roihuvuori_hyppyri.jpg">hyppyri</a>, <a href="../roihuvuori/roihuvuori_alamaki.jpg">alastulorinne</a>.');
+
+// Ruskeasuo
+L.marker([60.198481, 24.918559]).addTo(map).bindPopup('Ruskeasuon hydda. Rakennettu 1959. Ylämäen betonirakenteita, hyppyri, <a href="../ruskeasuo/ruskeasuo_alamaki.jpg">alastulorinne</a>');
+
+// Siltavuori
+L.marker([60.17636, 24.9539]).addTo(map).bindPopup('28.2.1892 järjestettiin mäenlaskukilpailu Siltavuoren rannassa. Päivälehti kertoo hyppypaikasta näin: "Mäki laskeutui Siltawuorelta lähellä Pitkääsiltaa. Mäessä oli kaksi hyppyriä, joista toinen pudottautui laiwasillalta alas meren jäälle: ensimmäisen hyppyrin korkeus oli 8 ja toisen 5 jalkaa." Siltavuoren rannassa on vielä komeita <a href="../siltavuori/siltavuoren_kalliot.jpg">kallioita</a>, tarkkaa hyppypaikkaa ei tiedetä.');
+
+// Sörnäisten Olutpanimon mäki
+L.marker([60.19327, 24.97466]).addTo(map).bindPopup('Sörnäisten olutpanimon hydda, "Prykin kukku" n. 1905. Tarkkaa sijaintia ei tiedetä');
+
+// Taivaskallio
+L.marker([60.22002, 24.95164]).addTo(map).bindPopup('<img src="../taivari/1_thumb.jpg" class="bubble-image" alt="...">Taivaskallion hydda 1927&#150;30. Käpylän kisailijoiden, Käpylän VPK:n ja Suojeluskunnan ylläpitämä mäki Taivaskallion luoteisrinteellä. <a href="../taivari/"><br>Lue lisää</a>.');
+
+// Töölö
+L.marker([60.18792, 24.92478]).addTo(map).bindPopup('Pallokentän hydda. Harjoittelumäkiä on Pallokentän nurkalla ollut useampaan otteeseen. Ensimmäinen havainto on <a href="../toolo/toolon_hyppyri.jpg">vuodelta 1915</a>. Tarkkaa sijaintia ei tiedetä. Jukka Joutsi kuvasi <a href="../toolo/aave260.jpg">hyddan</a> Olympiastadionin nurkalla vuonna 1967.');
+
+// Vallila
+L.marker([60.19901, 24.95047]).addTo(map).bindPopup('Vallilan hydda, rakennettu 1955. Purkuvuosi ei tiedossa.');
+
+
+//Espoo
+
+// Bergö
+L.marker([60.11385, 24.71574]).addTo(map).bindPopup('<a href="../bergo/Hoppbacken_Bergo.jpg">Bergön mäki Hoppbacksbergetillä</a>. Merkitty ainakin Espoon kantakarttaan 1974.');
+
+// Laajalahti
+L.marker([60.20645, 24.79523]).addTo(map).bindPopup('Laajalahden Virin hydda Vahvialankalliolla, asukkaiden puheissa myös Himmelsberget, Taivaskallio ja Taivari. Samanniminen, tunnetumpi kallio löytyy Käpylästä. Hyppyrimäki rakennettu 1950-luvun alussa, purkuvuodesta ei tietoa.');
+
+// Monikko
+L.marker([60.23478, 24.79258]).addTo(map).bindPopup('Monikon hyddat. Mäkiennätys 47 metriä, Markku Maatela. Rakennettu 1960-1961, avajaiskilpailut 1962, purettu 1970-luvulla.');
+
+// Solvalla
+L.marker([60.29828, 24.55512]).addTo(map).bindPopup('Solvallan hydda, K27');
+
+// Tuomarila
+L.marker([60.19756, 24.69626]).addTo(map).bindPopup('Tuomarilan hydda 1947&#150;58');
+
+ </script>
+ <div id="text">
+ <p>Stadin mäkihyppy eli kulta-aikaansa 1950&#150;60-luvuilla. Kaupungin, urheiluseurojen ja yksityisten rakennuttamia hyndiä oli ympäri Helsinkiä.
+ 1970-luvulla harrastus hiipui ja lahot ylämäet purettiin 1980-luvulle tultaessa. Alamäet ovat useimmiten vielä löydettävissä. Hertsikaan jäivät Stadin ainoat toimivat hyndat. </p>
+
+<p>Helsingin mäkihyppyhistoria on kuitenkin pidempi. Se alkaa <strong>Skattalla 9.3.1886</strong> järjestetyistä Suomen ensimmäisistä mäkihyppykisoista.
+Samoissa kisoissa pidettiin myös Suomen ensimmäinen järjestetty hiihtokilpailu.
+Pohjoisrannassa sijaitsi Helsingfors Skridskoklubbin luistinrata, yksi kaupungin vanhimmista ja suosituimmista, joten Katajanokkaa voidaan pitää ensimmäisenä talviurheilukeskuksena Suomessa.
+</p>
+
+<p>Alppilaan rakennettiin 1905&#150;06 ensimmäinen varsinainen hyppyrimäki, suositun ravintola Alphyddan viereen.
+Siitä tulee Stadin slangiin hyppyrimäkeä tarkoittava sana hydda, myöhemmin hynda/hyndä. Samoin tunnetaan norski ja skvettamäki &#150; rakkaalla lapsella monta nimeä.
+Alppilassa järjestettiin myös maastohiihtokilpailuja. Hyndä purettiin 1939 ja ravintola paloi 1951,
+mutta kaupunginosan ruotsinkielisessä nimessä Alphyddan molempien muisto on jäljellä. 
+</p>
+
+<p>Alppilan hyddan käydessä pieneksi uudelle löydettiin paikka Hertsikasta. Mäki valmistui 1936 ja hyppääminen jatkui aina vuoteen 1976.
+Uudet mäet oli tuolloin jo rakennettu hieman pohjoisemmaksi Rajakalliolle. Herttoniemessä on pidetty myös paljon hiihtokilpailuja. 
+</p>
+
+<p>
+Hertsikassa on nyt Stadin viimeiset hyddat. <a href="http://www.helsinginmakihyppaajat.fi/" target="_blank">Helsingin Mäkihyppääjät</a> ylläpitää muovitettuja hyndiä 
+K15, K22 ja K46 veteraanivoimin. 
+</p>
+
+<p>Paikansimme Stadin hyddia vuonna 2013 <a href="http://www.skr.fi/fi/rahastot/uudenmaan-rahasto/" target="_blank">Uudenmaan Kulttuurirahaston</a> tuella ja 
+<a href="http://www.urheilumuseo.fi/Default.aspx?tabid=3394" target="_blank">Suomen Urheilumuseon</a> avulla.<br> 
+Kiitos tiedoista myös Helsingin kaupunginmuseolle, Espoon kaupungin nimistötoimelle,
+ entisille mäkimiehille ja lukuisille yksityisille kaupunginosa-aktiiveille.
+</p>
+
+<p>
+Lisätietoja ja korjauksia voi lähettää osoitteeseen: <a href="mailto:stadin.hyddat@gmail.com">stadin.hyddat@gmail.com</a>. <br>
+Voit myös liittyä Facebookissa ryhmään <a href="https://www.facebook.com/groups/hyddat" target="_blank">Stadin hyddat ennen ja nyt</a>.<br>
+Myös pönden hyndät kiinnostavat. ;-)
+</p>
+<p>
+Tsekkaa myös<br> 
+Helsingin Sanomat 4.12.2014: <a href="http://www.hs.fi/ihmiset/a1417583363214" target="_blank">Kolmikko paikansi Helsingin entiset hyppyrimäet</a>.<br>
+Markku "Bobi" Poutanen: <a href="http://www.nouseva.com/index.php?mod=31&recordID=120" target="_blank">Helsingin hyppyrimäkihistoria</a> Haagan Nousevan sivuilla.
+</p>
+ </div>
+ </div>
+</body>
+</html>

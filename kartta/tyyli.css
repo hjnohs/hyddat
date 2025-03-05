@@ -1,0 +1,51 @@
+body {
+background-image: url(makihyppaaja.png);
+background-repeat: repeat-y;
+background-position:  top center;
+}
+
+#map { 
+height: 700px;
+width: 1000px;
+}
+
+#text { 
+width: 1000px;
+}
+
+#container {
+width: 1000px;
+margin-left: auto;
+margin-right: auto;
+}
+
+h1 {
+font-size: 36px;
+line-height: 71px;
+margin-bottom: 0;
+}
+
+header {
+text-align: center;
+}
+
+a {
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+.logo_v{
+float: left;
+}
+
+.logo_o{
+float: right;
+}
+
+.bubble-image{
+margin-right: 7px;
+float: left;
+}
