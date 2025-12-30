@@ -11,4 +11,4 @@ jobs:
     - uses: actions/checkout@v6
     - run: sudo apt install lftp
     - name: "Upload"
-      run: lftp -u ${{ secrets.FTP_USER }},${{ secrets.FTP_PASSWORD }} ${{ secrets.FTP_HOST }} -e "mirror -R . /; quit"
+      run: lftp -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOST }}" -e "set ssl:verify-certificate no; mirror -R . /; quit"
