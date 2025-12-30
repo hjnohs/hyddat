@@ -23,6 +23,7 @@ jobs:
                 --continue \
                 --verbose \
                 --ignore-time \
+                --no-overwrite \
                 --exclude .git/ \
                 --exclude .github/ \
                 . /; \
