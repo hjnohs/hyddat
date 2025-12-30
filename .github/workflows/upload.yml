@@ -19,6 +19,7 @@ jobs:
                 --delete \
                 --continue \
                 --verbose \
+                --ignore-time \
                 --exclude .git/ \
                 --exclude .github/ \
                 . /; \
