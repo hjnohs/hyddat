@@ -5,10 +5,21 @@ on:
     branches:
       - main
 jobs:
-  check-bats-version:
+  upload:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
     - run: sudo apt install lftp
     - name: "Upload"
-      run: lftp -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOST }}" -e "set ssl:verify-certificate no; mirror -R . /; quit"
+      run: |
+        lftp -u "${{ secrets.FTP_USER }}","${{ secrets.FTP_PASSWORD }}" "${{ secrets.FTP_HOST }}" \
+          -e "set ssl:verify-certificate no; \
+              set cmd:fail-exit yes; \
+              mirror -R \
+                --delete \
+                --continue \
+                --verbose \
+                --exclude .git/ \
+                --exclude .github/ \
+                . /; \
+              quit"
